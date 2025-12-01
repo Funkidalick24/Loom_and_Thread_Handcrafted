@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --isabelline: #F8F3EF;
+  --reseda: #6B705C;
+  --chocolate: #49111C;
+  --cafe: #4A2F1B;
+  --ebony: #0A0908;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--isabelline);
+  color: var(--ebony);
+  font-family: var(--font-roboto), sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+}
+
