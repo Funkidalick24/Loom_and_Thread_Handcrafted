@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 
@@ -10,12 +12,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // Validate file type
     if (!file.type.startsWith("image/")) {
       return NextResponse.json({ error: "Only image files are allowed" }, { status: 400 });
     }
 
-    // Validate file size (e.g., 5MB max)
     if (file.size > 5 * 1024 * 1024) {
       return NextResponse.json({ error: "File size too large (max 5MB)" }, { status: 400 });
     }
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     const urlEndpoint = process.env.IMAGEKIT_URL_ENDPOINT!;
 
     const timestamp = Math.floor(Date.now() / 1000);
-    const expire = timestamp + 30 * 60; // 30 minutes
+    const expire = timestamp + 30 * 60;
     const token = crypto.randomBytes(16).toString("hex");
 
     const signature = crypto
